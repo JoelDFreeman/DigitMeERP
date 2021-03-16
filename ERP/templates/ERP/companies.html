@@ -1,0 +1,97 @@
+{% extends "ERP/base.html" %}
+{% block content %}  
+    <head>
+        {% if title %}
+        <title> Company details - {{ title }}</title>
+        {% else %}
+        <title>Company details</title>
+        {% endif %}
+    </head>
+    <body>
+
+        {% for i in companies %}
+        <h1> Company {{ i.name}}</h1>
+        <p>Shortname {{ i.shortname }}</p>
+        <p>code name {{ i.codename }}</p>
+        <p>VAT Number {{ i.VAT_Number }}</p>
+        <p>Created At {{ i.created_at }}</p>
+        <p>Modified {{ i.modified }}</p>
+        {% endfor %}
+
+        <form>
+            <label for="Companies"{{ company.name }}>Company Search</label>  
+            <input type="text" name="Company" id="Company"> 
+        </form>  
+        <br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Company:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Company</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Company</a>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="">Update Addressess</a>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Contact</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Contact</a>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Orders</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px"></h1>
+		</div>
+	</div>
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Companies</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Code</th>
+                    <th>Created At Date</th>
+                </tr>
+                {% for i in companies %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.codename}}</td>
+                        <td>{{i.created_at}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    
+</div>   
+{% endblock content %}

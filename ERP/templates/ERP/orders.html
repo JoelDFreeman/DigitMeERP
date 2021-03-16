@@ -1,0 +1,32 @@
+{% extends "ERP/base.html" %}
+{% block content %}    
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Orders</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Price</th>
+                    <th>Invoiced</th>
+                </tr>
+                {% for i in orders %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.company_id}}</td>
+                        <td>{{i.paid}}</td>
+                        <td>{{i.invoiced}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    
+</div>   
+{% endblock content %}  
